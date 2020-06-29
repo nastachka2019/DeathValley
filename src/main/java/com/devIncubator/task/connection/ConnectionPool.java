@@ -22,7 +22,7 @@ import java.util.concurrent.LinkedBlockingDeque;
  */
 
 public enum ConnectionPool {
-   INSTANCE;
+    INSTANCE;
     private BlockingQueue<ConnectionProxy> freeConnections;
     private Queue<ConnectionProxy> givenConnections;         //для контроля целостности пулла
     private final Logger logger = LogManager.getLogger();
