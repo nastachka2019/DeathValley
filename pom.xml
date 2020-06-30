@@ -26,12 +26,22 @@
       <version>2.12.1</version>
     </dependency>
 
-    <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
     <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>javax.servlet-api</artifactId>
-      <version>4.0.1</version>
-      <!--    <scope>provided</scope>-->
+    <groupId>javax.servlet</groupId>
+    <artifactId>servlet-api</artifactId>
+    <version>2.5</version>
+    <scope>provided</scope>
+  </dependency>
+    <dependency>
+      <groupId>javax.servlet.jsp</groupId>
+      <artifactId>jsp-api</artifactId>
+      <version>2.1</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>jstl</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.2</version>
     </dependency>
     <dependency>
       <groupId>org.apache.logging.log4j</groupId>
@@ -39,6 +49,11 @@
       <version>2.12.1</version>
     </dependency>
 
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.2</version>
+    </dependency>
     <dependency>
       <groupId>org.apache.logging.log4j</groupId>
       <artifactId>log4j-core</artifactId>
@@ -51,7 +66,6 @@
       <version>8.0</version>
       <scope>provided</scope>
     </dependency>
-
     <dependency>
       <groupId>javax</groupId>
       <artifactId>javaee-web-api</artifactId>
@@ -59,19 +73,11 @@
       <scope>provided</scope>
     </dependency>
 
-    <!-- https://mvnrepository.com/artifact/javax.servlet.jsp/javax.servlet.jsp-api -->
-    <dependency>
-      <groupId>javax.servlet.jsp</groupId>
-      <artifactId>javax.servlet.jsp-api</artifactId>
-      <version>2.3.1</version>
-      <scope>provided</scope>
-    </dependency>
     <dependency>
       <groupId>org.apache.tomcat</groupId>
       <artifactId>tomcat-jdbc</artifactId>
       <version>9.0.31</version>
     </dependency>
-
     <dependency>
       <groupId>org.testng</groupId>
       <artifactId>testng</artifactId>
@@ -79,17 +85,10 @@
       <scope>test</scope>
     </dependency>
 
-
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
       <version>8.0.19</version>
-    </dependency>
-
-    <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>jstl</artifactId>
-      <version>1.2</version>
     </dependency>
   </dependencies>
 
