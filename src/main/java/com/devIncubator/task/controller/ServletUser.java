@@ -14,10 +14,11 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet(urlPatterns = "/")
-public class Servlet extends HttpServlet {
+public class ServletUser extends HttpServlet {
     private UserServiceImpl userService = new UserServiceImpl();
     List<User> userList;
-
+//    List<User> users = new ArrayList<User>();
+//    User user;
     {
         try {
             userList = userService.takeAllUsers();
@@ -25,10 +26,18 @@ public class Servlet extends HttpServlet {
             e.printStackTrace();
         }
     }
-
+//    {
+//        try {
+//            user= userService.findUserById(Integer.parseInt("id"));
+//        } catch (ServiceException e) {
+//            e.printStackTrace();
+//        }
+//    }
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("list", userList);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/showUsers.jsp");
+//        request.setAttribute("user",user);
+
         dispatcher.forward(request, response);
     }
 

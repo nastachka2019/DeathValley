@@ -7,6 +7,9 @@
     <title>Users</title>
 </head>
 <body>
+<h1 align="center">Users List</h1>
+
+</br>
 
 <table>
     <tr>
@@ -24,8 +27,11 @@
     </c:forEach>
 
 </table>
-<%--FORM TO SELECT BOOK BY ID--%>
-<form action="books.do" method="get">
+
+<h1 align="center">Find user by Id: </h1>
+
+</br>
+<form action="" method="get">
     <input type="number" name="id" placeholder="введите номер книги">
     <input type="submit" value="Найти">
     <input name="action" value="findById" hidden="hidden">
