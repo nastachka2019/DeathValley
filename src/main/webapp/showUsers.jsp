@@ -31,10 +31,10 @@
 <h1 align="center">Find user by Id: </h1>
 
 </br>
-<form action="" method="get">
-    <input type="number" name="id" placeholder="введите номер книги">
-    <input type="submit" value="Найти">
-    <input name="action" value="findById" hidden="hidden">
+<form action="${param.id}" method="get">
+    <input type="number" name="id" placeholder="enter user id">
+    <input type="submit" value="Search">
+
 </form>
 
 
