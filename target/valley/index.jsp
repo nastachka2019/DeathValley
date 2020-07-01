@@ -32,11 +32,11 @@
 
 
 <div class="wrapper">
-    <form action="accountSum.jsp">
- <div class="wrapper-block"> <div class="block">richest user</div> <button>get</button></div>
+    <form action="theRichestUser.jsp">
+ <div class="wrapper-block"> <div class="block">the richest user</div> <button>get</button></div>
     </form>
     <div>
-        <form action="theRichestUser.jsp">
+        <form action="accountSum.jsp">
         <div class="block">accounts sum</div> <button>get</button></div>
     </form>
 </div>

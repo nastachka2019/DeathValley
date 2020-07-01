@@ -5,15 +5,15 @@
 
 <body>
 <h2>Accounts sum</h2>
-<form method='post'>
-    <table border = "2">
-            <% AccountDaoImpl accountDao=new AccountDaoImpl();
+<table border="2">
+        <% AccountDaoImpl accountDao=new AccountDaoImpl();
             {%>
-        <tr>
-            <td><%=accountDao.findSumOfAccount()%></td>
+    <tr>
+        <td><%=accountDao.findSumOfAccount()%>
+        </td>
 
-        </tr>
-                <%}%>
-</form>
+    </tr>
+        <%}%>
+
 </body>
 </html>
