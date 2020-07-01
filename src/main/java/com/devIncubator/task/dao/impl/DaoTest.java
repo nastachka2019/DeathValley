@@ -1,5 +1,6 @@
 package com.devIncubator.task.dao.impl;
 
+import com.devIncubator.task.dao.AccountDao;
 import com.devIncubator.task.exception.DaoException;
 import com.devIncubator.task.exception.ServiceException;
 import com.devIncubator.task.service.impl.UserServiceImpl;
@@ -10,6 +11,8 @@ public class DaoTest {
        //System.out.println(userDao.findById(9));
         UserServiceImpl userService=new UserServiceImpl();
        // System.out.println(userService.findUserById(7));
-        System.out.println(userService.takeAllUsers());
+       // System.out.println(userService.takeAllUsers());
+        AccountDao accountDao=new AccountDaoImpl();
+        System.out.println(accountDao.findById(2));
     }
 }

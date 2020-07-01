@@ -78,4 +78,27 @@ public class Account extends Entity {
                 ", userId=" + userId +
                 '}';
     }
+
+    public static class Builder {
+        private Integer accountId;
+        private Integer accountUser;
+        private User userId;
+
+        public Builder(Integer accountId, Integer accountUser, User userId) {
+            this.accountId = accountId;
+            this.accountUser = accountUser;
+            this.userId = userId;
+        }
+
+        public Account build() {
+            return new Account(this) {
+            };
+        }
+    }
+
+    private Account(Builder builder) {
+        accountId = builder.accountId;
+        accountUser = builder.accountUser;
+        userId = builder.userId;
+    }
 }
