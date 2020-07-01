@@ -17,7 +17,7 @@ import java.sql.Statement;
  * @author Shpakova A.
  */
 
-public interface BasicDao <T extends Entity>{
+public interface BasicDao<T extends Entity> {
     /**
      * Method: find object by id in database table depending on method's realization
      * and create suitable object.

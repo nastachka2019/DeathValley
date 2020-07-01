@@ -1,7 +1,5 @@
 package com.devIncubator.task.entity;
 
-import java.util.Objects;
-
 /**
  * Class for storing account's data
  *

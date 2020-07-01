@@ -24,7 +24,7 @@ import java.util.concurrent.LinkedBlockingDeque;
 public enum ConnectionPool {
     INSTANCE;
     private BlockingQueue<ConnectionProxy> freeConnections;
-    private Queue<ConnectionProxy> givenConnections;         //для контроля целостности пулла
+    private Queue<ConnectionProxy> givenConnections;         // to control the integrity of the pool
     private final Logger logger = LogManager.getLogger();
     private Properties properties;
     private PropertyLoader propertyLoader;
@@ -42,7 +42,7 @@ public enum ConnectionPool {
             throw new RuntimeException();
         }
         POOL_SIZE = Integer.parseInt(properties.getProperty("poolSize"));
-        freeConnections = new LinkedBlockingDeque<>(POOL_SIZE);           //заполняем очередь соединениями
+        freeConnections = new LinkedBlockingDeque<>(POOL_SIZE);           // fill queue with connections
         ConnectionProxy connectionProxy = null;
         for (int i = 0; i < POOL_SIZE; i++) {
             try {
@@ -62,7 +62,7 @@ public enum ConnectionPool {
         ConnectionProxy connection = null;
         try {
             connection = freeConnections.take();
-            givenConnections.offer(connection);      //взятый коннекшн перемещаем вво вторую очередь
+            givenConnections.offer(connection);      //taken connection remove in the second queue
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
             logger.error("Failed connection ", e);
@@ -74,8 +74,8 @@ public enum ConnectionPool {
      * Method: release connection
      */
 
-    public void releaseConnection(Connection connection) throws ConnectionPoolException {   //освобождаем коннекшн
-        if (connection.getClass() == ConnectionProxy.class) {      //сравниваем,нам возвращается наш коннекшн(прокси) или "дикий"
+    public void releaseConnection(Connection connection) throws ConnectionPoolException {   //free connection
+        if (connection.getClass() == ConnectionProxy.class) {      // compare, we are returned to our connection (proxy) or "wild"
             givenConnections.remove(connection);
             freeConnections.offer((ConnectionProxy) connection);
         } else {
@@ -103,7 +103,7 @@ public enum ConnectionPool {
     }
 
     private void deregisterDrivers() {
-        Enumeration<Driver> drivers = DriverManager.getDrivers();     //получаем ссылки на все драйвера
+        Enumeration<Driver> drivers = DriverManager.getDrivers();     //get links to all drivers
         while (drivers.hasMoreElements()) {
             Driver driver = drivers.nextElement();
             try {

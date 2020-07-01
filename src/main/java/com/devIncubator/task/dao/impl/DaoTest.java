@@ -5,6 +5,7 @@ import com.devIncubator.task.exception.DaoException;
 import com.devIncubator.task.exception.ServiceException;
 import com.devIncubator.task.service.impl.UserServiceImpl;
 
+@Deprecated
 public class DaoTest {
     public static void main(String[] args) throws DaoException, ServiceException {
       //  UserDaoImpl userDao=new UserDaoImpl();

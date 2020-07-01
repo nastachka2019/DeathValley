@@ -4,7 +4,6 @@ import com.devIncubator.task.entity.User;
 import com.devIncubator.task.exception.ServiceException;
 import com.devIncubator.task.service.impl.UserServiceImpl;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -13,6 +12,11 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+/**
+ * Servlet receives request, processes it and return answer
+ *
+ * @author Shpakova A.
+ */
 @WebServlet(urlPatterns = "/userList")
 public class ServletUserList extends HttpServlet {
     private UserServiceImpl userService = new UserServiceImpl();
@@ -26,15 +30,10 @@ public class ServletUserList extends HttpServlet {
         }
     }
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //request.setAttribute("list", userList);
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
         PrintWriter writer = response.getWriter();
         writer.println(userList);
-
-    }
-
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     }
 }
 

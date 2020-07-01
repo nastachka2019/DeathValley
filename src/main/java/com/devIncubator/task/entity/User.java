@@ -9,7 +9,7 @@ import javax.persistence.criteria.CriteriaBuilder;
  * @author Shpakova A.
  */
 
-public class User extends Entity{
+public class User extends Entity {
     private Integer userId;
     private String name;
     private String surname;

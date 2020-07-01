@@ -16,6 +16,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class for actions with {@link com.devIncubator.task.entity.Account} according DAO and database data
+ *
+ * @author Shpakova A.
+ */
 public class AccountDaoImpl implements AccountDao {
 
     Connection connection = ConnectionPool.INSTANCE.getConnection();
@@ -28,6 +33,7 @@ public class AccountDaoImpl implements AccountDao {
         UserService userService = new UserServiceImpl();
         return userService.findUserById(userId);
     }
+
     @Override
     public List<Account> takeAllAccounts() throws DaoException {
         List<Account> accountList = new ArrayList<>();
@@ -36,7 +42,7 @@ public class AccountDaoImpl implements AccountDao {
             resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                accountList.add(new Account.Builder(resultSet.getInt(1), resultSet.getInt(2),findUserById(resultSet.getInt(3))).build());
+                accountList.add(new Account.Builder(resultSet.getInt(1), resultSet.getInt(2), findUserById(resultSet.getInt(3))).build());
             }
             return accountList;
 

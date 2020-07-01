@@ -23,7 +23,7 @@ class PropertyLoader {
 
     Properties setProperty(String fileName) {
         Properties properties = new Properties();
-        InputStream resourceAsStream = getClass().getClassLoader().getResourceAsStream(fileName); //загрузка(чтение) ресурса
+        InputStream resourceAsStream = getClass().getClassLoader().getResourceAsStream(fileName); //resource loading(reading)
         try {
             properties.load(resourceAsStream);
         } catch (IOException e) {

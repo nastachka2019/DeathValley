@@ -19,7 +19,7 @@ public class UserServiceImpl implements UserService {
 
     private UserDao userDao;
 
-    public UserServiceImpl() {                 //если нужно будет вызвать м-ды из др. классов
+    public UserServiceImpl() {
         this.userDao = new UserDaoImpl();
     }
 
