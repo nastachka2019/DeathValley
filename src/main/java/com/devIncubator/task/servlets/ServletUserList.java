@@ -1,10 +1,9 @@
-package com.devIncubator.task.controller;
+package com.devIncubator.task.servlets;
 
 import com.devIncubator.task.entity.User;
 import com.devIncubator.task.exception.ServiceException;
 import com.devIncubator.task.service.impl.UserServiceImpl;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,7 +14,7 @@ import java.io.PrintWriter;
 import java.util.List;
 
 @WebServlet(urlPatterns = "/userList")
-public class ServletUser extends HttpServlet {
+public class ServletUserList extends HttpServlet {
     private UserServiceImpl userService = new UserServiceImpl();
     List<User> userList;
 
@@ -28,7 +27,7 @@ public class ServletUser extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("list", userList);
+        //request.setAttribute("list", userList);
         response.setContentType("text/html");
         PrintWriter writer = response.getWriter();
         writer.println(userList);
