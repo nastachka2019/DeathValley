@@ -6,13 +6,13 @@ import com.devIncubator.task.service.impl.UserServiceImpl;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
+import java.io.PrintWriter;
+@WebServlet("/user")
 public class Servlet extends HttpServlet {
     private UserServiceImpl userService = new UserServiceImpl();
     User user;
@@ -23,9 +23,10 @@ public class Servlet extends HttpServlet {
         } catch (ServiceException e) {
             e.printStackTrace();
         }
-        request.setAttribute("user",user);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/showUsers.jsp");
-        dispatcher.forward(request, response);
+        request.setAttribute("users",user);
+        response.setContentType("text/html");
+        PrintWriter writer = response.getWriter();
+        writer.println(user);
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

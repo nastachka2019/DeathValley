@@ -11,13 +11,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.io.PrintWriter;
 import java.util.List;
 
-@WebServlet(urlPatterns = "/")
+@WebServlet(urlPatterns = "/userList")
 public class ServletUser extends HttpServlet {
     private UserServiceImpl userService = new UserServiceImpl();
     List<User> userList;
+
     {
         try {
             userList = userService.takeAllUsers();
@@ -28,11 +29,13 @@ public class ServletUser extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("list", userList);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/showUsers.jsp");
-        dispatcher.forward(request, response);
+        response.setContentType("text/html");
+        PrintWriter writer = response.getWriter();
+        writer.println(userList);
+
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request, response);
     }
 }
+
