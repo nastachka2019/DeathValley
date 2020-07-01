@@ -5,7 +5,7 @@ import com.devIncubator.task.exception.DaoException;
 import com.devIncubator.task.exception.ServiceException;
 import com.devIncubator.task.service.impl.UserServiceImpl;
 
-@Deprecated
+
 public class DaoTest {
     public static void main(String[] args) throws DaoException, ServiceException {
       //  UserDaoImpl userDao=new UserDaoImpl();
@@ -14,6 +14,6 @@ public class DaoTest {
        // System.out.println(userService.findUserById(7));
        // System.out.println(userService.takeAllUsers());
         AccountDao accountDao=new AccountDaoImpl();
-        System.out.println(accountDao.findById(2));
+        System.out.println(accountDao.findTheRichestUser());
     }
 }

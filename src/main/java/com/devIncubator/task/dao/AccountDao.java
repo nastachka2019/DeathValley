@@ -19,4 +19,8 @@ public interface AccountDao extends BasicDao<Account> {
      * @return list of accounts
      */
     List<Account> takeAllAccounts() throws DaoException;
+
+    int findSumOfAccount() throws DaoException;
+
+    int findTheRichestUser() throws DaoException;
 }

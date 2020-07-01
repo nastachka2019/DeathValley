@@ -28,6 +28,8 @@ public class AccountDaoImpl implements AccountDao {
     ResultSet resultSet = null;
     private static final String SQL_FIND_ACCOUNT_BY_ID = "SELECT accountId, accountUser, userId FROM account WHERE accountId=?";
     private static final String SQL_TAKE_ALL_ACCOUNTS = "SELECT accountId, accountUser, userId FROM account";
+    private static final String SQL_FIND_SUM = "SELECT SUM(accountUser) FROM account";
+    private static final String SQL_FIND_THE_RICHEST_USER = "SELECT userId FROM account WHERE accountUser =(SELECT MAX(accountUser) FROM account)";
 
     private User findUserById(int userId) throws ServiceException {
         UserService userService = new UserServiceImpl();
@@ -47,6 +49,46 @@ public class AccountDaoImpl implements AccountDao {
             return accountList;
 
         } catch (SQLException | ServiceException e) {
+            throw new DaoException(e);
+        } finally {
+            closeResultSet(resultSet);
+            closePreparedStatement(preparedStatement);
+            closeConnection(connection);
+        }
+    }
+
+    @Override
+    public int findSumOfAccount() throws DaoException {
+        int sum = 0;
+        try {
+            preparedStatement = connection.prepareStatement(SQL_FIND_SUM);
+            resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                sum = resultSet.getInt(1);
+            }
+            return sum;
+
+        } catch (SQLException e) {
+            throw new DaoException(e);
+        } finally {
+            closeResultSet(resultSet);
+            closePreparedStatement(preparedStatement);
+            closeConnection(connection);
+        }
+    }
+
+    @Override
+    public int findTheRichestUser() throws DaoException {
+        int userId = 0;
+        try {
+            preparedStatement = connection.prepareStatement(SQL_FIND_THE_RICHEST_USER);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                userId = resultSet.getInt(1);
+            }
+            return userId;
+        } catch (SQLException e) {
             throw new DaoException(e);
         } finally {
             closeResultSet(resultSet);
