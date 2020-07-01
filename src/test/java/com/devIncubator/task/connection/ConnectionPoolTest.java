@@ -20,7 +20,6 @@ public class ConnectionPoolTest {
         pool = null;
     }
 
-
     @Test
     public void testCheckPoolSize() {  //positive
         int expected = 32;

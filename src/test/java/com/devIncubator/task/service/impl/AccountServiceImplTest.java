@@ -26,8 +26,8 @@ public class AccountServiceImplTest {
     @Test(dataProvider = "testFindAccountById") //positive
     public void testFindAccountById(Integer accountId, Integer accountUser) throws ServiceException {
         ConnectionPool.INSTANCE.getConnection();
-        AccountService accountService=new AccountServiceImpl();
-        Account account=accountService.findAccountById(accountId);
+        AccountService accountService = new AccountServiceImpl();
+        Account account = accountService.findAccountById(accountId);
         Assert.assertEquals(account.getAccountUser(), accountUser);
     }
 
@@ -41,18 +41,18 @@ public class AccountServiceImplTest {
     @Test(dataProvider = "testFindAccountByIdNegative") //negative
     public void testFindAccountByIdNegative(Integer accountId, Integer accountUser) throws ServiceException {
         ConnectionPool.INSTANCE.getConnection();
-        AccountService accountService=new AccountServiceImpl();
-        Account account=accountService.findAccountById(accountId);
+        AccountService accountService = new AccountServiceImpl();
+        Account account = accountService.findAccountById(accountId);
         Assert.assertEquals(account.getAccountUser(), accountUser);
     }
 
     @Test //positive
     public void testTakeAllAccounts() throws ServiceException {
         ConnectionPool.INSTANCE.getConnection();
-        AccountService accountService=new AccountServiceImpl();
-        List<Account> accounts= accountService.takeAllAccounts();
-        int actual=11;
-        int expected=accounts.size();
+        AccountService accountService = new AccountServiceImpl();
+        List<Account> accounts = accountService.takeAllAccounts();
+        int actual = 11;
+        int expected = accounts.size();
         Assert.assertEquals(actual, expected);
     }
 }

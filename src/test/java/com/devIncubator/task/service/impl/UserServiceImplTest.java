@@ -48,8 +48,8 @@ public class UserServiceImplTest {
         ConnectionPool.INSTANCE.getConnection();
         UserService userService = new UserServiceImpl();
         List<User> users = userService.takeAllUsers();
-        int actual=11;
-        int expected=users.size();
+        int actual = 11;
+        int expected = users.size();
         Assert.assertEquals(actual, expected);
     }
 }
