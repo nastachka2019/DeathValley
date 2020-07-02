@@ -20,7 +20,6 @@ import java.util.concurrent.LinkedBlockingDeque;
  *
  * @author Shpakova A.
  */
-
 public enum ConnectionPool {
     INSTANCE;
     private BlockingQueue<ConnectionProxy> freeConnections;
