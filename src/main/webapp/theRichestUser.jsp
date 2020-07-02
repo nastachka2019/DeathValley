@@ -7,19 +7,18 @@
 <body>
 <h2>Information about the richest user: </h2>
 <table border="2">
-<% AccountDaoImpl accountDao = new AccountDaoImpl();
+        <% AccountDaoImpl accountDao = new AccountDaoImpl();
     UserDaoImpl userDao = new UserDaoImpl();
     {%>
-<tr>
-    <td>userId=<%=accountDao.findTheRichestUser()%>
-    </td>
-    <br><br>
+    <tr>
+        <td>userId=<%=accountDao.findTheRichestUser()%>
+        </td>
+        <br><br>
 
-    <td>Information about this user: <%=userDao.findById(accountDao.findTheRichestUser())%>
-    </td>
-</tr>
-
-<%}%>
+        <td>Information about this user: <%=userDao.findById(accountDao.findTheRichestUser())%>
+        </td>
+    </tr>
+        <%}%>
 
 </body>
 </html>
